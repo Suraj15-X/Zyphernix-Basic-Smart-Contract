@@ -18,7 +18,7 @@ contract SimpleIOU {
 
     function repay(address lender) public payable {
         require(iou[msg.sender][lender] > 0, "No debt to repay");
-        require(msg.value <= iou[msg.sender][lender], "Paying more than you owe");
+        require(msg.value <= iou[msg.sender][lender], "Paying more than you get");
 
         iou[msg.sender][lender] -= msg.value;
         balances[lender] += msg.value;
